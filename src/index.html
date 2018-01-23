@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Renault Digital</title>
+    <base href="/">
+
+    <link rel="icon" type="image/png" href="assets/img/Logo.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://unpkg.com/uppy/dist/uppy.min.css" rel="stylesheet">
+
+    <script>
+        var uppy = Uppy.Core({ autoProceed: false })
+        uppy.use(Uppy.DragDrop, {target: '.UppyDragDrop'})
+        uppy.use(Uppy.Tus, {endpoint: '//master.tus.io/files/'})
+        uppy.run()
+    </script>
+
+</head>
+<body>
+    <app-root></app-root>
+    <script>
+        function isObjEmpty (obj) {
+            return Object.keys(obj).length === 0 && obj.constructor === Object
+        }
+
+        var optionInputs = {
+            DashboardInline: document.querySelector('#opts-DashboardInline'),
+            Webcam: document.querySelector('#opts-Webcam'),
+            GoogleDrive: document.querySelector('#opts-GoogleDrive'),
+            Dropbox: document.querySelector('#opts-Dropbox'),
+            Instagram: document.querySelector('#opts-Instagram'),
+            autoProceed: document.querySelector('#opts-autoProceed'),
+            restrictions: document.querySelector('#opts-restrictions')
+        }
+
+        var defaultOpts = {
+            DashboardInline: true,
+            Webcam: true,
+            GoogleDrive: true,
+            Instagram: true,
+            Dropbox: false,
+            autoProceed: false,
+            restrictions: false
+        }
+
+        // try to get options from localStorage, if its empty, set to defaultOpts
+        try {
+            window.uppyOptions = JSON.parse(localStorage.getItem('uppyOptions')) || {}
+        } catch (err) {
+            window.uppyOptions = {}
+        }
+
+        if (isObjEmpty(window.uppyOptions)) {
+            window.uppyOptions = defaultOpts
+            localStorage.setItem('uppyOptions', JSON.stringify(window.uppyOptions))
+        }
+
+        function toggleModalBtn () {
+            var btn = document.querySelector('.UppyModalOpenerBtn')
+            window.uppyOptions.DashboardInline
+                ? btn.style.display = 'none'
+                : btn.style.display = 'block'
+        }
+
+        // Map input state to options
+        Object.keys(optionInputs).forEach(function (item) {
+            optionInputs[item].checked = window.uppyOptions[item]
+        })
+
+        // When input value changes, update options
+        Object.keys(optionInputs).forEach(function (item) {
+            optionInputs[item].addEventListener('change', function () {
+                window.uppyOptions[item] = optionInputs[item].checked
+                localStorage.setItem('uppyOptions', JSON.stringify(window.uppyOptions))
+
+                toggleModalBtn()
+                window.uppyInit()
+            })
+        })
+
+        toggleModalBtn()
+    </script>
+
+    <script src="app.js"></script>
+    <script src="serveur.js"></script>
+</body>
+
+<script src="https://unpkg.com/uppy"></script>
+
+</html>

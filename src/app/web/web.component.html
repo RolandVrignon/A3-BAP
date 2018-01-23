@@ -1,0 +1,39 @@
+<div class="page-header" data-parallax="true" style="background-image: url('../assets/img/code.jpeg');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+            <h1>{{title}}</h1>
+            <h3>Tous vos fichiers enregistrés dans le cloud, en interne</h3>
+            <br />
+            <button type="button" class="btn btn-outline-neutral btn-round">Commencer</button>
+        </div>
+    </div>
+</div>
+
+    <div class="main">
+        <div class="row">
+            <div class="col-sm-3" style="height: 100vh; background-color: #DCDCDC; padding-top: 10px; ">
+                <form class="bd-search d-flex align-items-center">
+                    <input type="search" class="form-control" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+                    <button class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>
+                    </button>
+                </form>
+                <nav>
+                    <ul>
+                        <a href="">
+                            <ul>
+                                <li *ngFor="let categorie of categories; let i = index">
+                                    {{i+1}} - {{categorie}}
+                                </li>
+                            </ul>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-9">
+                <h2>Posté récemment</h2>
+                <ul>
+                    <li *ngFor="let a of FakeArray; let iteration = index">Iteration n° {{ iteration }}</li>                 </ul>
+            </div>
+        </div>
+    </div>

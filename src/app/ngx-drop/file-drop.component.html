@@ -1,0 +1,9 @@
+<div id="dropZone" customstyle="background-color=blue;"
+    (drop)="dropFiles($event)"
+    (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)">
+    <div class="content">
+        <ng-content></ng-content>
+        {{headertext}}
+    </div>
+</div>
+

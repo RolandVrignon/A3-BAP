@@ -1,0 +1,151 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('../../assets/img/login-image.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-10 mr-auto ml-auto">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <h6 style="color: white">Charte Graphique</h6>
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <h6 style="color: white">Visuels</h6>
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <h6 style="color: white">Code Web</h6>
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <h6 style="color: white">Template</h6>
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    <span class="form-check-sign"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="center">
+                            <file-drop (onFileDrop)="dropped($event)"
+                                       (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                                <span>poses ça la </span>
+                            </file-drop>
+
+                        <div class="upload-table">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                                </thead>
+                                <tbody class="upload-name-style">
+                                <tr *ngFor="let item of files; let i=index">
+                                    <td><strong>{{ item.relativePath }}</strong></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!--<div class="DashboardContainer text-center">
+                        <div class="uppy uppy-Dashboard uppy-Dashboard&#45;&#45;wide" aria-hidden="false" aria-label="Uppy Dashboard">
+                            <div class="uppy-Dashboard-overlay" tabindex="-1"></div>
+                            <div class="uppy-Dashboard-inner" style="max-height: 450px;">
+                                <button class="uppy-Dashboard-close" type="button" aria-label="Close Modal" title="Close Modal">
+                                    <svg aria-hidden="true" class="UppyIcon" width="14px" height="14px" viewBox="0 0 19 19">
+                                        <path d="M17.318 17.232L9.94 9.854 9.586 9.5l-.354.354-7.378 7.378h.707l-.62-.62v.706L9.318 9.94l.354-.354-.354-.354L1.94 1.854v.707l.62-.62h-.706l7.378 7.378.354.354.354-.354 7.378-7.378h-.707l.622.62v-.706L9.854 9.232l-.354.354.354.354 7.378 7.378.708-.707-7.38-7.378v.708l7.38-7.38.353-.353-.353-.353-.622-.622-.353-.353-.354.352-7.378 7.38h.708L2.56 1.23 2.208.88l-.353.353-.622.62-.353.355.352.353 7.38 7.38v-.708l-7.38 7.38-.353.353.352.353.622.622.353.353.354-.353 7.38-7.38h-.708l7.38 7.38z"></path>
+                                    </svg>
+                                </button>
+                                <div class="uppy-Dashboard-innerWrap">
+                                    <div class="uppy-DashboardTabs">
+                                        <ul class="uppy-DashboardTabs-list" role="tablist">
+                                            <li class="uppy-DashboardTab" role="presentation">
+                                                <button type="button" class="uppy-DashboardTab-btn" role="tab" tabindex="0">
+                                                    <svg aria-hidden="true" class="UppyIcon" width="27" height="25" viewBox="0 0 27 25">
+                                                        <path d="M5.586 9.288a.313.313 0 0 0 .282.176h4.84v3.922c0 1.514 1.25 2.24 2.792 2.24 1.54 0 2.79-.726 2.79-2.24V9.464h4.84c.122 0 .23-.068.284-.176a.304.304 0 0 0-.046-.324L13.735.106a.316.316 0 0 0-.472 0l-7.63 8.857a.302.302 0 0 0-.047.325z"></path>
+                                                        <path d="M24.3 5.093c-.218-.76-.54-1.187-1.208-1.187h-4.856l1.018 1.18h3.948l2.043 11.038h-7.193v2.728H9.114v-2.725h-7.36l2.66-11.04h3.33l1.018-1.18H3.907c-.668 0-1.06.46-1.21 1.186L0 16.456v7.062C0 24.338.676 25 1.51 25h23.98c.833 0 1.51-.663 1.51-1.482v-7.062L24.3 5.093z"></path>
+                                                    </svg>
+                                                    <div class="uppy-DashboardTab-name">My Device</div>
+                                                </button>
+                                                <input class="uppy-Dashboard-input" hidden="" aria-hidden="true" tabindex="-1" type="file" name="files[]" multiple=""></li>
+                                            <li class="uppy-DashboardTab" role="presentation">
+                                                <button class="uppy-DashboardTab-btn" type="button" role="tab" tabindex="0" aria-controls="uppy-DashboardContent-panel&#45;&#45;GoogleDrive">
+                                                    <svg aria-hidden="true" class="UppyIcon UppyModalTab-icon" width="28" height="28" viewBox="0 0 16 16">
+                                                        <path d="M2.955 14.93l2.667-4.62H16l-2.667 4.62H2.955zm2.378-4.62l-2.666 4.62L0 10.31l5.19-8.99 2.666 4.62-2.523 4.37zm10.523-.25h-5.333l-5.19-8.99h5.334l5.19 8.99z"></path>
+                                                    </svg>
+                                                    <h5 class="uppy-DashboardTab-name">Google Drive</h5>
+                                                </button>
+                                            </li>
+                                            <li class="uppy-DashboardTab" role="presentation">
+                                                <button class="uppy-DashboardTab-btn" type="button" role="tab" tabindex="0" aria-controls="uppy-DashboardContent-panel&#45;&#45;Instagram">
+                                                    <svg aria-hidden="true" class="UppyIcon UppyModalTab-icon" width="28" height="28" viewBox="0 0 512 512">
+                                                        <path d="M256,49.471c67.266,0,75.233.257,101.8,1.469,24.562,1.121,37.9,5.224,46.778,8.674a78.052,78.052,0,0,1,28.966,18.845,78.052,78.052,0,0,1,18.845,28.966c3.45,8.877,7.554,22.216,8.674,46.778,1.212,26.565,1.469,34.532,1.469,101.8s-0.257,75.233-1.469,101.8c-1.121,24.562-5.225,37.9-8.674,46.778a83.427,83.427,0,0,1-47.811,47.811c-8.877,3.45-22.216,7.554-46.778,8.674-26.56,1.212-34.527,1.469-101.8,1.469s-75.237-.257-101.8-1.469c-24.562-1.121-37.9-5.225-46.778-8.674a78.051,78.051,0,0,1-28.966-18.845,78.053,78.053,0,0,1-18.845-28.966c-3.45-8.877-7.554-22.216-8.674-46.778-1.212-26.564-1.469-34.532-1.469-101.8s0.257-75.233,1.469-101.8c1.121-24.562,5.224-37.9,8.674-46.778A78.052,78.052,0,0,1,78.458,78.458a78.053,78.053,0,0,1,28.966-18.845c8.877-3.45,22.216-7.554,46.778-8.674,26.565-1.212,34.532-1.469,101.8-1.469m0-45.391c-68.418,0-77,.29-103.866,1.516-26.815,1.224-45.127,5.482-61.151,11.71a123.488,123.488,0,0,0-44.62,29.057A123.488,123.488,0,0,0,17.3,90.982C11.077,107.007,6.819,125.319,5.6,152.134,4.369,179,4.079,187.582,4.079,256S4.369,333,5.6,359.866c1.224,26.815,5.482,45.127,11.71,61.151a123.489,123.489,0,0,0,29.057,44.62,123.486,123.486,0,0,0,44.62,29.057c16.025,6.228,34.337,10.486,61.151,11.71,26.87,1.226,35.449,1.516,103.866,1.516s77-.29,103.866-1.516c26.815-1.224,45.127-5.482,61.151-11.71a128.817,128.817,0,0,0,73.677-73.677c6.228-16.025,10.486-34.337,11.71-61.151,1.226-26.87,1.516-35.449,1.516-103.866s-0.29-77-1.516-103.866c-1.224-26.815-5.482-45.127-11.71-61.151a123.486,123.486,0,0,0-29.057-44.62A123.487,123.487,0,0,0,421.018,17.3C404.993,11.077,386.681,6.819,359.866,5.6,333,4.369,324.418,4.079,256,4.079h0Z"></path><path d="M256,126.635A129.365,129.365,0,1,0,385.365,256,129.365,129.365,0,0,0,256,126.635Zm0,213.338A83.973,83.973,0,1,1,339.974,256,83.974,83.974,0,0,1,256,339.973Z"></path>
+                                                        <circle cx="390.476" cy="121.524" r="30.23"></circle>
+                                                    </svg>
+                                                    <h5 class="uppy-DashboardTab-name">Instagram</h5>
+                                                </button>
+                                            </li>
+                                            <li class="uppy-DashboardTab" role="presentation">
+                                                <button class="uppy-DashboardTab-btn" type="button" role="tab" tabindex="0" aria-controls="uppy-DashboardContent-panel&#45;&#45;Webcam">
+                                                    <svg aria-hidden="true" class="UppyIcon" width="18" height="21" viewBox="0 0 18 21">
+                                                        <path d="M14.8 16.9c1.9-1.7 3.2-4.1 3.2-6.9 0-5-4-9-9-9s-9 4-9 9c0 2.8 1.2 5.2 3.2 6.9C1.9 17.9.5 19.4 0 21h3c1-1.9 11-1.9 12 0h3c-.5-1.6-1.9-3.1-3.2-4.1zM9 4c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6 2.7-6 6-6z"></path>
+                                                        <path d="M9 14c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zM8 8c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1c0-.5.4-1 1-1z"></path>
+                                                    </svg>
+                                                    <h5 class="uppy-DashboardTab-name">Webcam</h5>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="uppy-DashboardFileCard" aria-hidden="true"></div>
+
+                                        <div class="uppy-Dashboard-filesContainer" >
+                                            <ul class="uppy-Dashboard-files uppy-Dashboard-files&#45;&#45;noFiles">
+                                            <div class="uppy-Dashboard-bgIcon">
+                                                <svg aria-hidden="true" class="UppyIcon" width="48" height="69" viewBox="0 0 48 69">
+                                                    <path d="M.5 1.5h5zM10.5 1.5h5zM20.5 1.5h5zM30.504 1.5h5zM45.5 11.5v5zM45.5 21.5v5zM45.5 31.5v5zM45.5 41.502v5zM45.5 51.502v5zM45.5 61.5v5zM45.5 66.502h-4.998zM35.503 66.502h-5zM25.5 66.502h-5zM15.5 66.502h-5zM5.5 66.502h-5zM.5 66.502v-5zM.5 56.502v-5zM.5 46.503V41.5zM.5 36.5v-5zM.5 26.5v-5zM.5 16.5v-5zM.5 6.5V1.498zM44.807 11H36V2.195z"></path>
+                                                </svg>
+
+
+                                                    <span>optional content (don't set headertext then)</span>
+                                            </div>
+                                        </ul>
+                                        </div>
+
+                                    <div class="uppy-DashboardContent-panel" role="tabpanel" aria-hidden="true"></div>
+                                    <div class="uppy-Dashboard-progressindicators">
+                                        <div class="uppy uppy-StatusBar is-waiting" aria-hidden="true">
+                                            <div class="uppy-StatusBar-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 0%;"></div>
+                                            <div class="uppy-StatusBar-actions"></div>
+                                        </div>
+                                        <div class="uppy uppy-Informer" aria-hidden="true" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+                                            <p role="alert"> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
